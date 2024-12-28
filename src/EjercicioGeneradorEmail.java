@@ -43,21 +43,31 @@ public class EjercicioGeneradorEmail {
         } else if (respuesta == 2) {
             System.out.print("Dame tus nombres: ");
             var nombres = consola.nextLine();
-            System.out.print("Dame tu apellido paterno: ");
-            var apellido = consola.nextLine();
+            System.out.print("Dame tus apellidos: ");
+            var apellidos = consola.nextLine();
             System.out.print("Dame el nombre de empresa: ");
             var nombreEmpresa = consola.nextLine();
             System.out.print("Dame tu nombre de dominio: ");
             var nombreDominio = consola.nextLine();
 
-            System.out.println("\n");
 
-            var nombreNormalizado = nombres.toLowerCase().strip().replace(" ", "").charAt(0);
-            var apellidoNormalizado = apellido.toLowerCase().toLowerCase().replace(" ", "");
-            var nombreEmprezaNormalizado = nombreEmpresa.toLowerCase().strip().replace(" ", "");
-            System.out.println("Nombre: " + nombres);
+            System.out.println("Nombre: " + nombres.strip() + " " + apellidos.strip());
             System.out.println("Nombre empresa: " + nombreEmpresa);
             System.out.println("Nombre dominio: " + nombreDominio);
+            System.out.println("\n");
+            String nombreagregado = "";
+
+            //Eliminar segundo nombre y obtener el primero
+            for(int i = 0;i<apellidos.length();i++){
+                if(apellidos.charAt(i) == ' '){
+                    break;
+                }
+                nombreagregado += apellidos.charAt(i);
+            }
+            var nombreNormalizado = nombres.toLowerCase().strip().replace(" ", "").charAt(0);
+            var apellidoNormalizado = nombreagregado.toLowerCase().toLowerCase().replace(" ", "");
+            var nombreEmprezaNormalizado = nombreEmpresa.toLowerCase().strip().replace(" ", "");
+
 
             System.out.println("\n");
 
